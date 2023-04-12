@@ -24,6 +24,28 @@
     {% block scripts %}{% endblock scripts %}
 </head>
 <body>
+<div class="modal show" id="upload-book-form-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="moal-title">Upload book</h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    {{ csrf_input }}
+                    {{ crispy(book_upload_form) }}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-success">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
 {{ ui_components.SiteHeader(request.user) }}
 <div class="main-content-container container">
     {% block content %}{% endblock content %}
