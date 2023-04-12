@@ -1,0 +1,120 @@
+/***********************/
+/*      Book           */
+/***********************/
+.book {
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    border: 1px solid var(--boder-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+}
+.book__cover-image {
+    flex: 0 0 130px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.book__info {
+    flex: 1 1 auto;
+    margin-left: 10px;
+    padding-top: 3px;
+}
+.book__title {
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 3px;
+}
+.book__actions {
+    margin-top: 18px;
+}
+.book__download {
+    margin-left: 20px;
+}
+
+
+/***********************/
+/*      BookList       */
+/***********************/
+.book-list {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+/***********************/
+/*      SearchForm     */
+/***********************/
+.search-form {
+    --border-color: #424242;
+    --bg-color: var(--border-color);
+    display: flex;
+    flex-direction: row;
+}
+.search-form__input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-form__input:focus, .search-form__input {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+}
+.search-form__submit {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+/***********************/
+/*      Navigation    */
+/***********************/
+.navigation {
+    --text-color: #9B9B9B;
+    --border-color: #424242;
+    --bg-color: var(--border-color);
+    display: flex;
+    flex-direction: row;
+}
+.navigation__link {
+    margin-right: 25px;
+    border: 1px solid var(--border-color);
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.navigation__link:hover, .navigation__link {
+    color: var(--text-color);
+    text-decoration: none;
+}
+.navigation__link:hover {
+    background-color: var(--bg-color);
+}
+
+/***********************/
+/*      SiteHeader     */
+/***********************/
+.site-header {
+    --bg-color: #2C2C2C;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bg-color);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.site-header__logo {
+    font-size: 18px;
+    padding-left: 5px;
+}
+.site-header__logo, .site-header__logo:hover {
+    color: var(--body-text-color);
+    text-decoration: none;
+}
+.site-header__navigation {
+    margin-left: auto;
+    margin-right: 50px;
+}
+.site-header__search-form {
+    margin-right: auto;
+}
+.site-header__accounts {
+    padding-right: 5px;
+}

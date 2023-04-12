@@ -1,0 +1,31 @@
+{% import "ui_components/ui_components.html" as ui_components %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} PDF Library {% endblock title %}</title>
+    <!-- Albert Sans Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ static('bootstrap/css/bootstrap.min.css') }}">
+    <script rel="stylesheet" href="{{ static('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Base styles -->
+    <link rel="stylesheet" href="{{ static('base/css/base.css') }}">
+    <link rel="stylesheet" href="{{ static('base/css/helpers.css') }}">
+
+    <!-- UI components css -->
+    <link rel="stylesheet" href="{{ static('ui_components/css/ui_components.css') }}">
+
+    {% block stylesheets %}{% endblock stylesheets %}
+    {% block scripts %}{% endblock scripts %}
+</head>
+<body>
+{{ ui_components.SiteHeader(request.user) }}
+<div class="main-content-container container">
+    {% block content %}{% endblock content %}
+</div>
+</body>

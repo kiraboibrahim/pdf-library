@@ -1,0 +1,71 @@
+{% macro Book(book) -%}
+    <div class="book">
+        <div style="background-image: url('{{ book.cover_image_url }}')" class="book__cover-image"></div>
+        <div class="book__info">
+            <h2 class="book__title text-truncate">{{ book.title }}</h2>
+            <span class="book__page-count h-secondary-text">{{ book.num_of_pages }} Pages</span>
+            <span class="book__uploader h-secondary-text">Uploaded by: {%if book.uploader %} {{ book.uploader }} {% else %} Anonymous {% endif %}</span>
+            <!--div class="book__actions">
+                <a href="{{ url('dmca-report', kwargs={'book_id': book.id}) }}" class="book__report-dmca btn btn-sm btn-outline-secondary">
+                    Report
+                </a>
+                <a href="{{ book.download_url }}" class="book__download btn btn-sm btn-outline-success">Download</a>
+            </div-->
+        </div>
+    </div>
+{%- endmacro %}
+
+
+{%  macro BookList(books) -%}
+    <div class="book-list">
+        {% for book in  books %}
+            {{ Book(book) }}
+        {% endfor %}
+    </div>
+{%- endmacro %}
+
+{% macro SearchForm() -%}
+<form class="search-form" method="get" action="search">
+    <div class="search-form__field">
+        <input class="search-form__input form-control" type="text" placeholder="Search books...">
+    </div>
+    <button class="search-form__submit btn btn-secondary" type="submit">GO</button>
+</form>
+{%- endmacro %}
+
+
+{% macro Navigation() -%}
+<nav class="navigation">
+    <a class="navigation__link" href="{{ url('book-list') }}">Books</a>
+    <a class="navigation__link" href="{{ url('book-category-list') }}">Categories</a>
+</nav>
+{%- endmacro %}
+
+{% macro Accounts(user) -%}
+<div class="accounts">
+    {%  if user.is_authenticated %}
+        <button class="btn btn-sm btn-success mr-3">Upload</button>
+        <a href="{{ url('logout') }}" class="accounts__logout btn btn-sm btn-outline-secondary">Logout</a>
+    {% else %}
+        <div>
+            <a href="{{ url('register') }}" class="accounts__sign-up btn btn-sm btn-outline-secondary">Sign up</a>
+            <a href="{{ url('login') }}" class="accounts__sign-in btn btn-sm btn-outline-success ml-4">Sign in</a>
+        </div>
+    {% endif %}
+</div>
+{%- endmacro %}
+
+{% macro SiteHeader(user) -%}
+<div class="site-header">
+    <a href="/" class="site-header__logo">PDFLibrary</a>
+    <div class="site-header__navigation">
+        {{ Navigation() }}
+    </div>
+    <div class="site-header__search-form">
+        {{ SearchForm() }}
+    </div>
+    <div class="site-header__accounts">
+        {{ Accounts(user) }}
+    </div>
+</div>
+{%- endmacro %}
