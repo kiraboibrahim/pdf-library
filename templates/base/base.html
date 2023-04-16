@@ -9,12 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&display=swap" rel="stylesheet">
 
+    <!-- Jquery -->
+    <script src="{{ static('jquery/js/jquery.min.js') }}"></script>
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ static('bootstrap/css/bootstrap.min.css') }}">
-    <script rel="stylesheet" href="{{ static('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ static('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ static('select2/css/select2.min.css') }}">
+    <script src="{{ static('select2/js/select2.min.js') }}"></script>
 
     <!-- Base styles -->
     <link rel="stylesheet" href="{{ static('base/css/base.css') }}">
+    <script src="{{ static('base/js/base.js') }}"></script>
     <link rel="stylesheet" href="{{ static('base/css/helpers.css') }}">
 
     <!-- UI components css -->
@@ -24,24 +32,24 @@
     {% block scripts %}{% endblock scripts %}
 </head>
 <body>
-<div class="modal show" id="upload-book-form-modal">
+<div class="book-upload-form-modal modal fade" id="book-upload-form-modal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="moal-title">Upload book</h3>
+                <h3 class="modal-title">Upload book</h3>
                 <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" action="{{ url('book-upload') }}" enctype="multipart/form-data" id="book-upload-form">
                     {{ csrf_input }}
                     {{ crispy(book_upload_form) }}
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-sm btn-success">Upload</button>
+                <button type="submit" class="btn btn-sm btn-success book-upload-form-submit">Upload</button>
             </div>
         </div>
     </div>
@@ -50,4 +58,10 @@
 <div class="main-content-container container">
     {% block content %}{% endblock content %}
 </div>
+{# Show the book-upload-form-modal when the form has errors #}
+{% if book_upload_form.errors %}
+<script>
+    $("#book-upload-form-modal").modal({show: true});
+</script>
+{% endif %}
 </body>
