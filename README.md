@@ -1,6 +1,6 @@
 # PDF LIBRARY
 
-![PDF Library Application Screenshot](https://ik.imagekit.io/8mch78q847k/pdf-library-screenshot_c5wY6ij0i.png?updatedAt=1681314353734)
+![PDF Library Application Screenshot](https://ik.imagekit.io/8mch78q847k/pdf_library_screenshot_3_glyrWG-Yk.png?updatedAt=1681628914852)
 
 A community driven information sharing platform that allows users to preserve and share knowledge through uploading uploading books, research papers, e.t.c
 
