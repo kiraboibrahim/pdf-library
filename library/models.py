@@ -23,11 +23,11 @@ class BookAuthor(models.Model):
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=150)
+    title = models.CharField(max_length=150, unique=True)
     num_of_pages = models.IntegerField(editable=False)
     file_size = models.FloatField(editable=False)
     cover_image = models.ImageField(upload_to=book_cover_image_upload_path, editable=False)
-    file = models.FileField(upload_to=book_file_upload_path, validators=[PDFRequired, NonMaliciousPDFRequired])
+    file = models.FileField(upload_to=book_file_upload_path, validators=(PDFRequired(), NonMaliciousPDFRequired()))
     categories = models.ManyToManyField("BookCategory", related_name="books")
     authors = models.ManyToManyField("BookAuthor", related_name="books")
     uploader = models.ForeignKey(User, on_delete=models.CASCADE, related_name="books", null=True, editable=False)
@@ -49,7 +49,7 @@ class Book(models.Model):
 
 class BookCategory(models.Model):
     name = models.CharField(max_length=150, unique=True)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
