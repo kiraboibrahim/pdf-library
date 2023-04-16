@@ -80,6 +80,7 @@
     border: 1px solid var(--border-color);
     padding: 5px 8px;
     border-radius: 5px;
+    font-size: 15px;
 }
 .navigation__link:hover, .navigation__link {
     color: var(--text-color);
@@ -115,6 +116,23 @@
 .site-header__search-form {
     margin-right: auto;
 }
-.site-header__accounts {
-    padding-right: 5px;
+
+
+/***************************
+    PAGINATION
+****************************/
+.page-item.active .page-link {
+ color:#fff;
+ background-color: #646464;
+ border-color: #646464;
+}
+.page-link {
+    background-color: var(--bg-color);
+    border:1px solid var(--input-border-color);
+    color: gray;
+}
+.page-link:hover {
+    background-color: #373737;
+    border-color: var(--input-border-color);
+    color: gray;
 }
