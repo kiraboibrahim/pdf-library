@@ -3,4 +3,5 @@
 {% block content %}
     <h2>Books</h2>
     {{ ui_components.BookList(books) }}
+    {{ ui_components.Pagination(page_obj, 3) }}
 {% endblock content %}
