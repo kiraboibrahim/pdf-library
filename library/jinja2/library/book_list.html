@@ -1,7 +1,8 @@
 {% extends "base/base.html" %}
 
 {% block content %}
+    {% set pagination_base_path = url('book-list') %}
     <h2>Books</h2>
     {{ ui_components.BookList(books) }}
-    {{ ui_components.Pagination(page_obj, 3) }}
+    {{ ui_components.Pagination(page_obj, 3, pagination_base_path) }}
 {% endblock content %}
