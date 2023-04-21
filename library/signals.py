@@ -12,7 +12,7 @@ from .models import Book
 def attach_book_meta_data(sender, instance, *args, **kwargs):
     with fitz.Document(stream=io.BytesIO(instance.file.read())) as pdf:
         instance.file.seek(0)
-        instance.file_size = len(instance.file.read())
+        instance.file_size = instance.file.size
         instance.num_of_pages = pdf.page_count
         cover_image_file = ContentFile(pdf.load_page(0).get_pixmap().tobytes(),
                                        name="{}_cover.png".format(slugify(instance.title)))
