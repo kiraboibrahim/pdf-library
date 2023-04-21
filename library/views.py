@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from .models import Book
-from .mixins import BookUploaderRequiredMixin
+from .mixins import BookUploaderRequiredMixin, BookListTemplateContextMixin
 from .forms import BookUploadForm
 
 
@@ -54,11 +54,8 @@ class BookCategoryListView(ListView):
     paginate_by = settings.MY_MAX_ITEMS_PER_PAGE
 
 
-class BookUploadView(SuccessMessageMixin, CreateView):
+class BookUploadView(SuccessMessageMixin, BookListTemplateContextMixin, CreateView):
     template_name = "library/book_list.html"  # Used incase the form is invalid
-    extra_context = {
-        "books": Book.objects.all()
-    }
     http_method_names = ["post"]
     form_class = BookUploadForm
     success_url = reverse_lazy("home")
