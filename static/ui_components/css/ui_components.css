@@ -64,6 +64,8 @@
 .search-form__submit {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    background-color: #373737;
+    color: gray;
 }
 /***********************/
 /*      Navigation    */
