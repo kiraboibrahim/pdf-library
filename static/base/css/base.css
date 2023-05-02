@@ -61,3 +61,11 @@ label {
 .main-content-container {
     margin-top: 50px;
 }
+footer {
+    margin-top: 20px;
+    background-color: var(--bg-color);
+    padding: 10px;
+}
+.attribution {
+    font-size: 14px;
+}
