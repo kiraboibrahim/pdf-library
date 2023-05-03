@@ -1,6 +1,8 @@
-# PDF LIBRARY
+# BookStacks
 
-![PDF Library Application Screenshot](https://ik.imagekit.io/8mch78q847k/pdf_library_screenshot_3_glyrWG-Yk.png?updatedAt=1681628914852)
+![UI Screenshot](https://ik.imagekit.io/8mch78q847k/Screenshot_from_2023-05-03_16-38-34_k21fIang9.png?updatedAt=1683121209694)
+
+![Upload Feature Screenshot](https://ik.imagekit.io/8mch78q847k/pdf_library_screenshot_3_glyrWG-Yk.png?updatedAt=1681628914852)
 
 A community driven information sharing platform that allows users to preserve and share knowledge through uploading uploading books, research papers, e.t.c
 
