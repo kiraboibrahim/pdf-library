@@ -38,28 +38,33 @@
 {%- endmacro %}
 
 
-{% macro Navigation() -%}
-<nav class="navigation">
-    <a class="navigation__link" href="{{ url('book-list') }}">Books</a>
-    <a class="navigation__link" href="{{ url('book-category-list') }}">Categories</a>
-</nav>
+{% macro Navigation(active_url) -%}
+<div class="navigation tabs is-medium">
+    {% set book_list_url =  url('book-list') %}
+    {% set book_category_list_url = url('book-category-list') %}
+    <ul>
+      <li class="navigation__item {% if active_url == book_list_url %} is-active {% endif %}">
+        <a class="navigation__link" href="{{ book_list_url }}">Books</a>
+      </li>
+      <li class="navigation__item {% if active_url == book_category_list_url %} is-active {% endif %}">
+        <a class="navigation__link" href="{{ book_category_list_url }}">Categories</a>
+      </li>
+    </ul>
+  </div>
 {%- endmacro %}
 
 {# Site Header #}
 {% macro SiteHeader(user) -%}
 <div class="site-header">
     <a href="/" class="site-header__logo">
-        <img src="{{ static('base/images/logo.png') }}">
-        PDFLibrary
+        <img class="site-header__logo-img" src="{{ static('base/images/logo.png') }}">
+        BookStacks
     </a>
-    <div class="site-header__navigation">
-        {{ Navigation() }}
-    </div>
     <div class="site-header__search-form">
         {{ SearchForm() }}
     </div>
-    <div class="site-header__accounts">
-        <button class="btn btn-sm btn-success mr-3" data-toggle="modal" data-target="#book-upload-form-modal">Upload
+    <div class="site-header__accounts d-flex my-auto">
+        <button class="btn btn-sm btn-primary mr-3" data-toggle="modal" data-target="#book-upload-form-modal">Upload
         </button>
         {% if user.is_authenticated %}
             <a href="{{ url('logout') }}" class="btn btn-sm btn-outline-secondary mr-2">Logout</a>

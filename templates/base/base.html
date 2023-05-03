@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} PDF Library {% endblock title %}</title>
+    <title>{% block title %} BookStacks | Download books in all formats for free {% endblock title %}</title>
     <!-- Albert Sans Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,8 +54,14 @@
         </div>
     </div>
 </div>
-{{ ui_components.SiteHeader(request.user) }}
+<!-- End of upload form -->
+
+<div class="top-bar">
+    {{ ui_components.SiteHeader(request.user) }}
+</div>
+
 <div class="main-content-container container">
+    {{ ui_components.Navigation(request.path_info) }}
     {% block content %}{% endblock content %}
 </div>
 

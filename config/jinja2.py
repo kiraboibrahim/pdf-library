@@ -11,7 +11,6 @@ class Environment:
 
     def __call__(self, **options):
         env = jinja2.Environment(**options)
-        request = env.globals.get("request")
         env.globals.update({
             "static": static,
             "url": reverse,

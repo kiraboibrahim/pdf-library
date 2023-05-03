@@ -50,13 +50,16 @@
     --border-color: #424242;
     --bg-color: var(--border-color);
     display: flex;
+    flex: 1 1 auto;
     flex-direction: row;
+}
+.search-form__field {
+    flex: 1 1 auto;
 }
 .search-form__input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-
 .search-form__input:focus, .search-form__input {
     border: 1px solid var(--border-color);
     background-color: var(--bg-color);
@@ -71,26 +74,27 @@
 /*      Navigation    */
 /***********************/
 .navigation {
-    --text-color: #9B9B9B;
+    --text-color: #858585;
+    --active-color: #339933;
     --border-color: #424242;
-    --bg-color: var(--border-color);
-    display: flex;
-    flex-direction: row;
+    --hover-color: rgba(13, 134, 13, .05);
+    margin-bottom: 30px;
 }
 .navigation__link {
-    margin-right: 25px;
-    border: 1px solid var(--border-color);
-    padding: 5px 8px;
-    border-radius: 5px;
-    font-size: 15px;
-}
-.navigation__link:hover, .navigation__link {
     color: var(--text-color);
     text-decoration: none;
 }
 .navigation__link:hover {
-    background-color: var(--bg-color);
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--hover-color);
 }
+
+.is-active .navigation__link, .is-active .navigation__link:hover {
+    border-bottom: 1px solid  var(--active-color);
+    color: var(--active-color);
+}
+
 
 /***********************/
 /*      SiteHeader     */
@@ -99,24 +103,25 @@
     --bg-color: #2C2C2C;
     display: flex;
     flex-direction: row;
-    background-color: var(--bg-color);
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 .site-header__logo {
-    font-size: 18px;
+    font-size: 15px;
     padding-left: 5px;
+}
+.site-header__logo-img {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    margin-right: 10px;
 }
 .site-header__logo, .site-header__logo:hover {
     color: var(--body-text-color);
     text-decoration: none;
 }
-.site-header__navigation {
-    margin-left: auto;
-    margin-right: 50px;
-}
 .site-header__search-form {
-    margin-right: auto;
+    flex: 0 0 50%;
+    display: flex;
+    margin: auto;
 }
 
 
